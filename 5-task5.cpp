@@ -1,4 +1,4 @@
-//Input string name getting from user and store one array using class and object.
+// Input string name getting from user and store one array using class and object.
 
 #include <iostream>
 #include <string>
@@ -7,12 +7,12 @@ using namespace std;
 class family
 {
 public:
-    string names[5];
-    int count=0;
+    string names[3];
+    int count = 0;
     void addName(string name, int count)
     {
         names[count] = name;
-        //count++;
+        // count++;
     }
 
     void display(int size)
@@ -28,18 +28,17 @@ public:
     {
         string name;
         int i = 0;
-        int k = 0;
-        while (k < 5)
+        while (i < 3)
         {
             cout << "Enter name: ";
             getline(cin, name);
-            k++;
+            i++;
             if (name == "done")
             {
                 break;
             }
-                addName(name, count);
-                       count++;
+            addName(name, count);
+            count++;
         }
     }
 };
@@ -48,5 +47,5 @@ int main()
 {
     family details;
     details.collectNames();
-    details.display(5);
+    details.display(3);
 }

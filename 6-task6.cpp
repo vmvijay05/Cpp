@@ -6,35 +6,31 @@ class family
 {
 public:
     string names[3];
-    int count = 0,flag=0;
-    string str="Vij";
+    int count = 0, flag = 0;
+    string str = "Vij";
     char *ptr;
 
     void addName(string name, int count)
     {
         names[count] = name;
     }
-    
-    
-       
-       
-      void search()
+
+    void search()
     {
-        for(int i=0;i<3;i++)
+        for (int i = 0; i < 3; i++)
         {
             if (names[i] == str)
-             {
-                             flag++;
-            cout << "The string is occured" << endl;
-            break;
-             }
+            {
+                flag++;
+                cout << "The searched string is present" << endl;
+                break;
+            }
         }
-                if(flag==0)
+        if (flag == 0)
         {
-            cout << "The string is not occured" << endl;
+            cout << "The searched string is not present" << endl;
         }
     }
-
 
     void makeupper()
     {
@@ -79,9 +75,8 @@ public:
 int main()
 {
     family details;
-details.collectNames();
-        details.search();
+    details.collectNames();
+    details.search();
     details.makeupper();
     details.display(3);
-
 }

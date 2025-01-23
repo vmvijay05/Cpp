@@ -51,7 +51,6 @@ public:
 
 int main()
 {
-    // int age;
     student studetail;
     studetail.name = "Vijaykumar";
     studetail.age = 16;
@@ -62,7 +61,5 @@ int main()
     studetail.increaseage(4); // increaseage function to use increase the age. so that we use value 4.
     studetail.personaldetail();
     studetail.companydetail();
-
-    // int twice=increaseage(studetail.age);
-    // cout<< "The updated employee age is: " << twice <<endl;
 }
+

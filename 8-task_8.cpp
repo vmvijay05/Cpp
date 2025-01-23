@@ -57,11 +57,11 @@ int main()
     int answer = details.search("kumar");
     if (answer == true)
     {
-        cout << "the seaching value is present." << endl;
+        cout << "The Searched value is present." << endl;
     }
     else
     {
-        cout << "The seached value is not present." << endl;
+        cout << "The searched value is not present." << endl;
     }
 
     details.display();

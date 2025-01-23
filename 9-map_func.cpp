@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <map>
@@ -15,36 +14,61 @@ map<string, int> students;
   {
         students[name] = age;
         cout << "student name: " << name << " and age " << age << endl;
+  }
+  
+  bool search(string name)
+  {
+     // cout<<"end value: "<< students.end();
+       if (students.find(name)!= students.end())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+  }
+
+void deleted()
+{
+    students.erase("vijay");
 }
 
-//  bool search(string name)
-//     {
-//         if(name == students)
-//         {
-//             return true;
-//         }
-//         else{
-//             return false;
-//         }
-
-//     }
+void display() {
+        if (students.empty()) {
+            cout << "The map is empty." << endl;
+            return;
+        }
+        for (const auto& pair : students) {
+            cout << "Name: " << pair.first << ", Age: " << pair.second << endl;
+        }
+    }
 
 };
 
 int main()
 {
     college details;
+    
    details.addstudent("Vijay",26);
     details.addstudent("kumar",27);
-    details.addstudent("Ram",40);
-//    int ans= details.search("kumar");
-//    if(ans==true)
-//    {
-//        cout << "The key is present." <<  endl;
-//    }
-//    else{
-//        cout << "The key is not present." <<  endl;
-//    }
+//details.addstudent("Vijay",40);
+    string search_name="asdfg";
     
+    bool answer;
     
+    answer=details.search(search_name);
+    if(answer==true)
+    {
+        cout << "The student " <<search_name << " is present" << endl;
+    }
+    else
+    {
+        cout << "The student " << search_name << " is not present" << endl;
+    }
+    
+    details.deleted();
+    cout << "After deleted" << endl;
+    details.display();
+ 
 }

@@ -4,6 +4,7 @@ using namespace std;
 class addnum{
     public:
     int x,y,ans;
+    
     int sum(int a,int b)
     {
         ans=a+b;
@@ -13,8 +14,8 @@ class addnum{
 int main()
 {
     addnum addobj;
-        int ans,a,b;
-    addobj.sum(a,b);
+        int ans,a=6,b=8;
+    //addobj.sum(a,b);
         ans=addobj.sum(a,b);
 cout << "The sum of two numbers is " << ans;
 }
