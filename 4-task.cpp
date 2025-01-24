@@ -12,7 +12,7 @@ public:
 
     bool isadult()
     {
-        if (age > 18)
+        if (age >= 18)
         {
             return true;
         }
@@ -57,6 +57,7 @@ int main()
     studetail.company_name = "econ";
     studetail.code = 2025;
     studetail.add = "north street";
+
     studetail.personaldetail();
     studetail.increaseage(4); // increaseage function to use increase the age. so that we use value 4.
     studetail.personaldetail();
