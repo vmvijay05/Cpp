@@ -11,6 +11,7 @@ class addnum{
         return ans;
     }
 };
+
 int main()
 {
     addnum addobj;
