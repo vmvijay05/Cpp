@@ -1,0 +1,4 @@
+/* 1. "g++ -c StringLength.cpp -o StringLength.o"
+2. "ar rcs libStringLength.a StringLength.o"
+3. "g++ main.cpp -o main -L. -lStringLength"
+4. "./main" */

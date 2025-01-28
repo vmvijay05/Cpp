@@ -1,0 +1,33 @@
+List of fils:
+=============
+./mylibrary.h         (Header file for the library)
+./mylibrary.cpp       (Source file for the library)
+./mylibrary.o         (Compiled object file for the library)
+./libmylibrary.a      (Static library file)
+./main.cpp            (Main program source file)
+./main                (Generated executable file)
+
+Commands:
+=========
+1. Compile the library:  "g++ -c mylibrary.cpp -o mylibrary.o"
+2. Create the Static library: "ar rcs libmylibrary.a mylibrary.o"
+3. Compile and link the main program: "g++ -o main mylibrary.o -L. libmylibrary.a"
+4. Run the program: "./main"
+
+Steps:
+======
+1. First create the Headerfile -> "filename.h".
+2. Then create the .cpp file (Mention the created header file name in the .cpp file "#include "mylibrary.h" ")
+3. Use a C++ compiler to generate an object file from mylibrary.cpp (execute the above 1st command).
+4. Use the ar command to create the static library from the object file.(Execute the above 2nd command).
+5. Create a separate C++ program that uses the library.
+6. Use the static library when compiling the main program. (Execute the above 3rd command).
+7. Run the main program (Execute the 4th command)
+8. Now you becomes the expected output.
+
+
+
+
+
+
+
