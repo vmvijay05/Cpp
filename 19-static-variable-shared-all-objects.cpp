@@ -18,7 +18,7 @@ public:
 };
 
 // Define and initialize the static variable outside the class
-int Example::count = 0;
+int Example::count = 0; //(If the static variable initialize the value inside the function the keyword "inline" should be used. eg: static inline count=0;)
 
 int main()
 {
@@ -29,4 +29,7 @@ int main()
 
     obj2.increment();    // Increment using obj2
     obj2.displayCount(); // Count: 2
+obj1.increment();
+    obj1.displayCount();
+
 }
