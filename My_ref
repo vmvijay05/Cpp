@@ -1,0 +1,156 @@
+CREATE TABLE person_details (
+    Serial_num INT,
+    Fullname VARCHAR(100),
+    Email_ID VARCHAR(255),
+    Password VARCHAR(100),
+    Work_status VARCHAR(100)
+);
+
+Compile cmnd=> g++ -I/usr/include/mysql 23-Register_page_with_MySql.cpp -o out -lmysqlclient
+
+updated compile cmnd =>  g++ -I/usr/include/mysql-cppconn/jdbc -L/usr/lib/x86_64-linux-gnu -o out 23-Register_page_with_MySql.cpp -lmysqlcppconn
+
+Mysql install on ubunut utube video link: https://www.youtube.com/watch?v=zRfI79BHf3k
+
+---------------------------------------------------------------------------------------------------------------------------
+
+// POlymorpnisim`
+int query(int phonenu)
+int query (stringemilaidb)
+
+
+//pass by value
+fumc1 ( Register& r)
+{
+      r.serial_number = 2;
+}
+
+
+// pass by reference. 
+int queryResgier(int phoneNumber, Register & obj)
+{
+
+}
+
+
+// =-  Approach 1 --
+
+
+Register queryRegisterbyphone( int phoneNUmber)
+{
+
+}
+
+Register queryRegister(string eMailID)
+{
+    // retrieve the row from database based on email
+    return Register object;
+}
+
+int  newRegistration(Register reg)
+{
+    // create connection
+    // update table
+    // if success, return SUCCESS, else, FAILURE. 
+}
+
+
+
+Method1:
+==========
+#include <iostream>
+#include "./mysql.h"
+#include "./includes/mysql.h"
+#include <mysql/mysql.h>
+// #include "Task1_with_db/mysql.h"
+#include <mysql/field_types.h>
+using namespace std;
+
+class Register
+{
+public:
+    int serial_number;
+    string fullname;
+    string emailid;
+    string pin;
+    string work_status;
+
+    static void getStaticCount()
+    {
+        static int count = 0;
+        count++;
+        // return count;
+        cout << "The count is: " << count << endl;
+    }
+};
+
+int main()
+{
+    Register candidate1, candidate2, candidate3;
+
+    // Database connection variables
+    const char *host = "localhost";
+    const char *user = "root";
+    const char *password = "root";
+    const char *dbname = "Register";
+
+    candidate1.serial_number = 1;
+    candidate1.fullname = "Vijayakumar";
+    candidate1.emailid = "vmvijay@gmail.com";
+    candidate1.pin = "Pass12!@";
+    // candidate1.mobile_number = 7402;
+    candidate1.work_status = "Studying";
+
+    candidate2.serial_number = 2;
+    candidate2.fullname = "BalaSaravanan";
+    candidate2.emailid = "iambala@gmail.com";
+    candidate2.pin = "xyz";
+    //candidate2.mobile_number = 7487;
+    candidate2.work_status = "Working";
+
+    candidate3.serial_number = 3;
+    candidate3.fullname = "Vishnu";
+    candidate3.emailid = "iamvishnu@gmail.com";
+    candidate3.pin = "qwert";
+    //candidate3.mobile_number = 7444;
+    candidate3.work_status = "Working";
+
+    // Connect to MySQL database
+    MYSQL *conn;
+    conn = mysql_init(0);
+    conn = mysql_real_connect(conn, host, user, password, dbname, 3306, NULL, 0);
+
+    // // 1. get the details
+    // // 2. create myqsl connection
+    // // 3. check for the duplicate
+    // //     if data exisits throw error
+    // //     else insert
+    // //     check the status .
+
+    if (conn)
+    {
+        // Insert query
+        string insert_query = "INSERT INTO person_details (Serial_num, Fullname,Email_ID, Password, Work_status) VALUES (2, 'BalaSaravanan', 'iambala@gmail.com' , 'qwert', 'Work_going') ";
+
+        // Execute the query
+        if (mysql_query(conn, insert_query.c_str()) == 0)
+        {
+            cout << "Data inserted successfully!" << endl;
+        }
+        else
+        {
+            cerr << "Error: " << mysql_error(conn) << endl;
+        }
+
+        // Close connection
+        mysql_close(conn);
+    }
+    else
+    {
+        cerr << "Failed to connect to MySQL: " << mysql_error(conn) << endl;
+    }
+    
+}
+
+
+

@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cstring>
 /// #include <string>
-#include <mysql/mysql.h>
-#include "./mysql.h"
+#include <mysql.h>
+// #include "./mysql.h"
 #include "./includes/mysql.h"
-#include <mysql/field_types.h>
-// #include <../mysql_driver.h>
-#include "/usr/include/mysql-cppconn/jdbc/mysql_driver.h"
+// #include <mysql/field_types.h>
+#include <field_types.h>
+#include <mysql_driver.h>
+//#include "/usr/include/mysql-cppconn/jdbc/mysql_driver.h"
 #include <mysql_connection.h>
 #include <cppconn/prepared_statement.h>
 #include <cppconn/resultset.h>
@@ -108,3 +109,4 @@ int main()
         cout << "SQLException: " << e.what() << endl;
     }
 }
+
