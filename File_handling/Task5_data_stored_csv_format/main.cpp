@@ -45,15 +45,47 @@ public:
              << "\nMobile: " << mobile_num << endl;
     }
 
-    void writeToFile(ofstream &out)
+    void writeToCSV(ofstream &out)
     {
-        out.write((char *)this, sizeof(Register));
+        out << serial_num << ","
+            << fullname << ","
+            << emailid << ","
+            << password << ","
+            << work_status << ","
+            << mobile_num << "\n";
     }
 
-    bool readFromFile(ifstream &in)
+    bool readFromCSV(ifstream &in)
     {
-        in.read((char *)this, sizeof(Register));
-        return in.gcount() == sizeof(Register);
+        string line;
+        if (!getline(in, line))
+            return false;
+        size_t pos = 0;
+        string token;
+
+        pos = line.find(",");
+        serial_num = stoi(line.substr(0, pos));
+        line.erase(0, pos + 1);
+
+        pos = line.find(",");
+        fullname = line.substr(0, pos);
+        line.erase(0, pos + 1);
+
+        pos = line.find(",");
+        emailid = line.substr(0, pos);
+        line.erase(0, pos + 1);
+
+        pos = line.find(",");
+        password = line.substr(0, pos);
+        line.erase(0, pos + 1);
+
+        pos = line.find(",");
+        work_status = line.substr(0, pos);
+        line.erase(0, pos + 1);
+
+        mobile_num = line;
+
+        return true;
     }
 };
 
@@ -76,36 +108,42 @@ public:
         }
     }
 
-    void saveToBinaryFile(const string &filename)
+    void saveToCSVFile(const string &filename)
     {
-        ofstream outFile(filename, ios::binary);
+        ofstream outFile(filename);
         if (!outFile)
         {
             cout << "Error opening file for writing!\n";
             return;
         }
 
+        outFile << "Serial Number,Full Name,Email ID,Password,Work Status,Mobile Number\n";
+
         for (int i = 0; i < num_records; i++)
         {
-            records[i].writeToFile(outFile);
+            records[i].writeToCSV(outFile);
         }
 
         outFile.close();
-        cout << "Data saved to binary file successfully!\n";
+        cout << "Data saved to CSV file successfully!\n";
     }
 
-    void loadFromBinaryFile(const string &filename)
+    void loadFromCSVFile(const string &filename)
     {
-        ifstream inFile(filename, ios::binary);
+        ifstream inFile(filename);
         if (!inFile)
         {
             cout << "Error opening file for reading!\n";
             return;
         }
 
-        cout << "\nReading from Binary File:\n";
+        cout << "\nReading from CSV File:\n";
+
+        string header;
+        getline(inFile, header);
+
         int i = 0;
-        while (i < 10 && records[i].readFromFile(inFile))
+        while (i < 10 && records[i].readFromCSV(inFile))
         {
             records[i].displayDetails();
             i++;
@@ -118,9 +156,9 @@ public:
 int main()
 {
     subclass manager;
-    string filename = "registers.dat";
+    string filename = "registers.csv";
 
     manager.getAllDetails();
-    manager.saveToBinaryFile(filename);
-    manager.loadFromBinaryFile(filename);
+    manager.saveToCSVFile(filename);
+    manager.loadFromCSVFile(filename);
 }

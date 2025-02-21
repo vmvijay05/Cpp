@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Vijaykumar_/My-files/Github/Cpp/File_handling/Task2_data_store_binary_format",
-      "program": "d:/Vijaykumar_/My-files/Github/Cpp/File_handling/Task2_data_store_binary_format/build/Debug/outDebug",
+      "cwd": "d:/Vijaykumar_/My-files/Github/Cpp/File_handling/Task5_data_stored_csv_format",
+      "program": "d:/Vijaykumar_/My-files/Github/Cpp/File_handling/Task5_data_stored_csv_format/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

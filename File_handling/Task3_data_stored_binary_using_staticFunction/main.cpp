@@ -20,8 +20,8 @@
   
   class Register
   {
-  private:
-      static string filename; // Static variable for common filename
+  public:
+   static string filename; // Static variable for common filename
   
   public:
       int serial_num;
@@ -31,7 +31,7 @@
       string work_status;
       string mobile_num;
   
-      static void setFileName(const string &fname) // Function to set filename
+      static void setFileName(const string &fname)
       {
           filename = fname;
       }
